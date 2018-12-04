@@ -1,0 +1,11 @@
+C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Release\usb.Form1.resources
+C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Release\usb.Properties.Resources.resources
+C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\7113\Desktop\VSUSB\usb\usb\bin\Release\MONITOR OSD.exe
+C:\Users\7113\Desktop\VSUSB\usb\usb\bin\Release\MONITOR OSD.pdb
+C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Release\MONITOR OSD.exe
+C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Release\MONITOR OSD.pdb
+E:\Work_Project\TB-6801_APP\usb 10_30\usb\obj\x86\Release\MONITOR OSD.exe
+E:\Work_Project\TB-6801_APP\usb 10_30\usb\obj\x86\Release\MONITOR OSD.pdb
