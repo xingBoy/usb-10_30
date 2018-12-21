@@ -1,0 +1,25 @@
+C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Debug\usb.Form1.resources
+C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Debug\usb.Properties.Resources.resources
+C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\7113\Desktop\VSUSB\usb\usb\bin\Debug\MONITOR OSD.exe
+C:\Users\7113\Desktop\VSUSB\usb\usb\bin\Debug\MONITOR OSD.pdb
+C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Debug\MONITOR OSD.exe
+C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Debug\MONITOR OSD.pdb
+E:\Work_Project\TB-6801_APP\usb net4.0 （最终版10.30）\usb\usb\obj\x86\Debug\MONITOR OSD.exe
+E:\Work_Project\TB-6801_APP\usb net4.0 （最终版10.30）\usb\usb\obj\x86\Debug\MONITOR OSD.pdb
+E:\Work_Project\TB-6801_APP\usb net4.0 （最终版10.30）\usb\usb\obj\x86\Debug\usb.csprojResolveAssemblyReference.cache
+E:\Work_Project\TB-6801_APP\usb net4.0 （最终版10.30）\usb\usb\obj\x86\Debug\usb.Form1.resources
+E:\Work_Project\TB-6801_APP\usb net4.0 （最终版10.30）\usb\usb\obj\x86\Debug\usb.Properties.Resources.resources
+E:\Work_Project\TB-6801_APP\usb net4.0 （最终版10.30）\usb\usb\obj\x86\Debug\usb.csproj.GenerateResource.Cache
+E:\Work_Project\TB-6801_APP\usb net4.0 （最终版10.30）\usb\usb\bin\Debug\MONITOR OSD.exe
+E:\Work_Project\TB-6801_APP\usb net4.0 （最终版10.30）\usb\usb\bin\Debug\MONITOR OSD.pdb
+E:\Work_Project\TB-6801_APP\usb net4.0 （12.12）\usb\usb\obj\x86\Debug\MONITOR OSD.exe
+E:\Work_Project\TB-6801_APP\usb net4.0 （12.12）\usb\usb\obj\x86\Debug\MONITOR OSD.pdb
+E:\Work_Project\TB-6801_APP\usb net4.0 （12.12）\usb\usb\bin\Debug\MONITOR OSD.exe
+E:\Work_Project\TB-6801_APP\usb net4.0 （12.12）\usb\usb\bin\Debug\MONITOR OSD.pdb
+E:\Work_Project\TB-6801_APP\usb net4.0 （12.12）\usb\usb\obj\x86\Debug\usb.csprojResolveAssemblyReference.cache
+E:\Work_Project\TB-6801_APP\usb net4.0 （12.12）\usb\usb\obj\x86\Debug\usb.Form1.resources
+E:\Work_Project\TB-6801_APP\usb net4.0 （12.12）\usb\usb\obj\x86\Debug\usb.Properties.Resources.resources
+E:\Work_Project\TB-6801_APP\usb net4.0 （12.12）\usb\usb\obj\x86\Debug\usb.csproj.GenerateResource.Cache

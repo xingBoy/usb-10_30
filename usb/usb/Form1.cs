@@ -14,6 +14,7 @@ using System.Threading;
 using System.Collections;
 using System.IO;
 
+
 namespace usb
 {
     public partial class Form1 : Form
@@ -330,23 +331,34 @@ namespace usb
             //关闭连接(HidHandle是Create的时候获取的)
             CloseHandle(HidHandle);
         }
+        //====================================================
 
         public Form1()
         {
             InitializeComponent();
-        }
+        }       
 
         int link_flag = 0;
+        int SH;
+        int SW;
+        int self_SH;
+        int self_SW;
+        int star_win_flag = 1;//窗口初始化位置标志位,防止隐藏窗口后定时器重新跑窗口函数再次在初始化位置打开
         private void Form1_Load(object sender, EventArgs e)
         {
             //获取显示器屏幕的大小,不包括任务栏、停靠窗口
-            int SH = Screen.PrimaryScreen.WorkingArea.Height;
-            int SW = Screen.PrimaryScreen.WorkingArea.Width;
+            SH = Screen.PrimaryScreen.WorkingArea.Height;
+            SW = Screen.PrimaryScreen.WorkingArea.Width;
             //获取当前活动窗口高度跟宽度
-            int self_SH = this.Size.Height;
-            int self_SW = this.Size.Width;
-            //设置窗口打开的初始位置为下方居中
-            SetDesktopLocation((SW - self_SW) / 2, SH - self_SH);
+            self_SH = this.Size.Height;
+            self_SW = this.Size.Width;
+            if(star_win_flag==1)
+            {
+                //设置窗口打开的位置为下方居中
+                SetDesktopLocation((SW - self_SW) / 2, SH - self_SH);
+                star_win_flag = 0;
+            }
+            
 
             UsBMethod(0);                           //连接设备
             if (usb_flag == 0) UsBMethod(0);
@@ -355,10 +367,118 @@ namespace usb
                 MessageBox.Show(" Please insertion the USB ！"); //USB 检测失败信息    
                 link_flag = 1;
             }
+
+            //============添加窗体所在位置定时检测=================
+            TopMost = true;
+            System.Windows.Forms.Timer MyTimer = new System.Windows.Forms.Timer();
+            MyTimer.Tick += new EventHandler(StopRectTimer_Tick);
+            MyTimer.Interval = 100;
+            MyTimer.Enabled = true;
+
         }
 
+        //=================隐藏窗体&显示部分==================
+        int check_flag = 0; //窗体隐藏标志位，0为不开启隐藏功能，初始默认0
+        int win = 0;
+        int frmX;
+        int frmY;
+        private void StopRectTimer_Tick(object sender, EventArgs e)
+        {
+            // 获取窗体位置
+            frmX = this.Location.X;
+            frmY = this.Location.Y;
+
+            if (check_flag == 1)
+            {
+                //获取窗口的边沿与桌面的间距，判断窗口是否靠近边沿里面-1个位置
+                if (this.Left <= 0) //获取控件左边沿与桌面左边沿的间距，窗口靠近左边桌面边沿         
+                    win = 1;
+                else if (this.Top <= 0 && this.Left > 0 && this.Right < SW - 1)////获取控件上边沿与桌面上边沿的间距，窗口靠近顶端桌面边沿 
+                    win = 2;
+                else if (this.Right >= SW) ////获取控件右边沿与桌面左边沿的间距，窗口靠近右边桌面边沿  
+                    win = 3;
+                else //窗体没有靠近边沿
+                    win = 0;
+
+                /* Cursor.Position获取当前鼠标的位置
+                 * Bounds.Contains(Cursor.Position)获取鼠标位置是否在窗口边界里面，在返回ture
+                 *如果鼠标在窗体上，则根据停靠位置显示整个窗体
+                 *窗体边沿计算是以左边沿为主*/
+
+                if (Bounds.Contains(Cursor.Position))
+                {
+                    switch (win)
+                    {
+                        case 1:
+                            this.Opacity = 1.0f;    //窗口恢复不透明状态
+                                                    //窗体靠近左沿时，鼠标在窗体显示完整窗体 
+                            SetDesktopLocation(0, frmY);
+                            break;
+                        case 2:
+                            this.Opacity = 1.0f;    //窗口恢复不透明状态
+                                                    //窗体靠近顶部时，鼠标在窗体显示完整窗体  
+                            SetDesktopLocation(frmX, 0);
+                            break;
+                        case 3:
+                            this.Opacity = 1.0f;    //窗口恢复不透明状态
+                                                    //窗体靠近右沿时，鼠标在窗体显示完整窗体 
+                            SetDesktopLocation(SW - self_SW, frmY);
+                            break;
+                    }
+                }
+
+                //如果鼠标离开窗体，则根据停靠位置隐藏窗体（即把窗体显示出桌面以外），但须留出部分窗体边缘以便鼠标选中窗体，这里留7个位置
+                else
+                {
+                    switch (win)
+                    {
+                        case 1:
+                            this.Opacity = 0.2f; //窗口半透明
+                                                 //窗体靠近左沿时，鼠标不在窗体时隐藏 
+                            SetDesktopLocation(20 - self_SW, frmY);
+                            break;
+                        case 2:
+                            this.Opacity = 0.2f; //窗口半透明
+                                                 //窗体靠近顶部时，鼠标不在窗体时隐藏  
+                            SetDesktopLocation(frmX, 20 - self_SH);
+                            break;
+                        case 3:
+                            this.Opacity = 0.2f; //窗口半透明
+                                                 //窗体靠近右沿时，鼠标不在窗体时隐藏  
+                            SetDesktopLocation(SW - 20, frmY);
+                            break; 
+                    }
+                }
+            }
+        }
+
+        /*==========窗体边沿隐藏功能开启选择框===========*/
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.CheckState == CheckState.Checked) //判断复选框选中
+
+            {
+                check_flag = 1;
+                //if(win==0)//判断框功能选中时，判断窗口不在边沿时自动收到上边沿中间隐藏
+                {
+                    this.Opacity = 0.2f; //窗口半透明                   
+                    SetDesktopLocation((SW - self_SW) / 2, 20-SH );
+                }
+                
+                //MessageBox.Show("checkbox1 is checked\n" + checkBox1.Text);
+
+            }
+
+            else if (checkBox1.CheckState == CheckState.Unchecked) //判断复选框没选中
+
+            {
+                check_flag = 0;
+                //MessageBox.Show("checkbox1 is Unchecked\n" + checkBox1.Text);
+
+            }
+        }
         /*  ======================USB 插拔检测===========================    */
-        
+
         protected override void WndProc(ref Message m)
         {
             //Console.WriteLine(m.WParam.ToInt32());    //打印程序检测到的变化信息
@@ -465,5 +585,7 @@ namespace usb
                 }
             }
         }
+
+
     }
 }

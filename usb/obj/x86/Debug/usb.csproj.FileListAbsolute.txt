@@ -1,9 +1,0 @@
-C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Debug\usb.Form1.resources
-C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Debug\usb.Properties.Resources.resources
-C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Debug\GenerateResource.read.1.tlog
-C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Debug\GenerateResource.write.1.tlog
-C:\Users\7113\Desktop\VSUSB\usb\usb\bin\Debug\MONITOR OSD.exe
-C:\Users\7113\Desktop\VSUSB\usb\usb\bin\Debug\MONITOR OSD.pdb
-C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Debug\MONITOR OSD.exe
-C:\Users\7113\Desktop\VSUSB\usb\usb\obj\x86\Debug\MONITOR OSD.pdb
